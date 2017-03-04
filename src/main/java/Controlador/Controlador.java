@@ -5,7 +5,10 @@
  */
 package Controlador;
 
+import Mapeo.Persona;
+import Modelo.PersonaDAO;
 import javax.servlet.http.HttpServletRequest;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,12 +19,21 @@ import org.springframework.web.servlet.ModelAndView;
  *
  * @author jonathan
  */
+
 @Controller 
 public class Controlador {
+    
+  @Autowired
+  PersonaDAO persona_db;
     
     @RequestMapping(value="/")
     public String inicio(){
         return "inicio";
+    }
+    
+    @RequestMapping("/registro")
+    public String registro(){
+        return "registro";
     }
     
 @RequestMapping(value="/persona", method = RequestMethod.POST)
@@ -33,10 +45,6 @@ public class Controlador {
         return new ModelAndView("persona",model);
     
     }
-@RequestMapping("/registro")
-    public String registro() {
-        return "registro";
-    }
 
 @RequestMapping(value="/registrar", method = RequestMethod.GET)
     public ModelAndView registrado(ModelMap model,HttpServletRequest request){
@@ -47,6 +55,7 @@ public class Controlador {
         String anio = request.getParameter("anio");
         String email = request.getParameter("correo");
         String password = request.getParameter("contrasenia");
+       // persona_db.guardar(name, carrie, dia); 
         model.addAttribute("nombre", name);
         model.addAttribute("carrera", carrie);
         model.addAttribute("dia", dia);
@@ -55,7 +64,8 @@ public class Controlador {
         model.addAttribute("correo", email);
         model.addAttribute("contrasenia", password);
         return new ModelAndView("registrado",model);
-    
+        
     }
+    
     
 }

@@ -1,1 +1,5 @@
 Controlador/Controlador.class
+Modelo/PersonaDAO.class
+Modelo/UserDAO.class
+Mapeo/User.class
+Mapeo/Persona.class
