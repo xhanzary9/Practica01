@@ -5,6 +5,7 @@
  */
 package Modelo;
 
+
 import Mapeo.User;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -92,6 +93,51 @@ public class UserDAO {
            session.close();
         }
         return u;
+    }
+    
+    public void actualizar(User u) {
+    
+        Session session = sessionFactory.openSession();
+        Transaction tx = null;
+        try {
+           tx = session.beginTransaction();
+         
+           session.update(u);
+           
+           tx.commit();
+        }
+        catch (Exception e) {
+           if (tx!=null){ 
+               tx.rollback();
+           }
+           e.printStackTrace(); 
+        }finally {
+           session.close();
+        }
+    
+    }
+    
+      
+    public void eliminar(User u) {
+    
+        Session session = sessionFactory.openSession();
+        Transaction tx = null;
+        try {
+           tx = session.beginTransaction();
+         
+           session.delete(u);
+           
+           tx.commit();
+        }
+        catch (Exception e) {
+           if (tx!=null){ 
+               tx.rollback();
+           }
+           e.printStackTrace(); 
+        }finally {
+           session.close();
+        }
+    
     }
 
    
