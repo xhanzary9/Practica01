@@ -16,7 +16,7 @@ import org.hibernate.Transaction;
  * @author xhanzary
  */
 public class UserDAO {
-     //Atributo para una nueva sesion 
+    //Atributo para una nueva sesion 
     private SessionFactory sessionFactory;
 
     public void setSessionFactory(SessionFactory sessionFactory) {
@@ -24,14 +24,14 @@ public class UserDAO {
     }
     
     
-    public void guardar(User user) {
+    public void guardar(User u) {
     
         Session session = sessionFactory.openSession();
         Transaction tx = null;
         try {
            tx = session.beginTransaction();
          
-           session.persist(user);
+           session.persist(u);
            tx.commit();
         }
         catch (Exception e) {
@@ -45,16 +45,16 @@ public class UserDAO {
     
     }
     
-    public User getPersona(String correo) {
-        User user = null;
+   public User getUserc(String correo) {
+        User u = null;
         Session session = sessionFactory.openSession();
         Transaction tx = null;
         try {
            tx = session.beginTransaction();
-            String hql = " from Profesor where correo = :correo";
+            String hql = " from User where correo = :correo";
             Query query = session.createQuery(hql);
             query.setParameter("correo", correo);
-            user = (User)query.uniqueResult();
+            u = (User)query.uniqueResult();
             tx.commit();
            
         }
@@ -66,6 +66,33 @@ public class UserDAO {
         }finally {
            session.close();
         }
-        return user;
+        return u;
     }
+    
+    public User getUser(String correo, String password) {
+        User u = null;
+        Session session = sessionFactory.openSession();
+        Transaction tx = null;
+        try {
+           tx = session.beginTransaction();
+            String hql = " from User where correo = :correo and password = :password";
+            Query query = session.createQuery(hql);
+            query.setParameter("correo", correo);
+            query.setParameter("password", password);
+            u = (User)query.uniqueResult();
+            tx.commit();
+           
+        }
+        catch (Exception e) {
+           if (tx!=null){ 
+               tx.rollback();
+           }
+           e.printStackTrace(); 
+        }finally {
+           session.close();
+        }
+        return u;
+    }
+
+   
 }

@@ -5,68 +5,73 @@
  */
 package Mapeo;
 
-import java.util.Date;
-import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
+
 /**
  *
  * @author xhanzary
  */
 @Entity
-@Table(name="persona")
+@Table(name = "persona")
 public class Persona {
     
-    @Id @GeneratedValue(strategy=GenerationType.IDENTITY)
-    @OneToOne(mappedBy="idpersona")
-    private int id_persona;
+    @Id@GeneratedValue(strategy=GenerationType.IDENTITY)
+    @Column(name = "idpersona")
+    private int  id_persona;
     
     @Column(name = "nombre")
     private String nombre_persona;
     
     @Column(name = "fechanac")
-    private Date fecha_nacimiento;
+    private String fechaNac_persona;
     
     @Column(name = "carrera")
-    private String persona_carrera;
+    private String carrera_persona;
     
-    public int getPersonaId() {
+    public Persona(){}
+    
+    public Persona(String nombre, String fechanac, String carrera){
+        this.nombre_persona = nombre;
+        this.fechaNac_persona = fechanac;
+        this.carrera_persona = carrera;
+    }
+
+    public int getId_persona() {
         return id_persona;
     }
 
-    public void setId_Persona(int idperson) {
-        this.id_persona = idperson;
-    } 
-    
-    public String getPersonaNombre() {
+    public void setId_persona(int id_persona) {
+        this.id_persona = id_persona;
+    }
+
+    public String getNombre_persona() {
         return nombre_persona;
     }
 
-    public void setNombre_Persona(String name) {
-        this.nombre_persona = name;
-    }
-    
-    public Date getFechaNacimiento() {
-        return fecha_nacimiento;
+    public void setNombre_persona(String nombre_persona) {
+        this.nombre_persona = nombre_persona;
     }
 
-    public void setFecha_Nacimiento(Date fecha) {
-        this.fecha_nacimiento = fecha;
+    public String getFechaNac_persona() {
+        return fechaNac_persona;
+    }
+
+    public void setFechaNac_persona(String fechaNac_persona) {
+        this.fechaNac_persona = fechaNac_persona;
+    }
+
+    public String getCarrera_persona() {
+        return carrera_persona;
+    }
+
+    public void setCarrera_persona(String carrera_persona) {
+        this.carrera_persona = carrera_persona;
     }
     
-    public String getCarrera() {
-        return persona_carrera;
-    }
-    
-    public void setId_Persona(String carrera) {
-        this.persona_carrera = carrera;
-    }
     
 }

@@ -14,10 +14,10 @@
     <body>
         <h1 style = "text-align:center;">Inicio Sesión </h1>
         <hr>
-        <form method="POST" action="/Practica01/persona"style = "text-align:center;">
-            <input id="correo" name="correo" type="text" placeholder="Correo">
+        <form method="POST" action="/Practica01/persona" style = "text-align:center;">
+            <input id="correos" name="correo" type="text" placeholder="Correo">
             <br>
-            <input id="contrasenia" name="contrasenia" type="password" placeholder="Contraseña"style = "margin-top:10px;">
+            <input id="contrasenias" name="contrasenia" type="password" placeholder="Contraseña"style = "margin-top:10px;">
             <br>
             <button style = "margin-top:10px;">Aceptar</button>
         </form>

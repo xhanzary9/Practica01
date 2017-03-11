@@ -12,12 +12,16 @@
         <title>Registro</title>
     </head>
     <body>
-        <h1>Se a registrado a :</h1>
-        <h2>${nombre}</h2>
-        <h2>${carrera}</h2>
-        <h2>${dia}-${mes}-${anio}</h2>
-        <h2>${correo}</h2>
-        <h2>${contrasenia}</h2>
-        
+        <h1>${info}</h1>
+        <hr>
+        <h1>${persona.getNombre_persona()}</h1>
+        <br>
+        <h1>${persona.getCarrera_persona()}</h1>
+        <br>
+        <h1>${persona.getFechaNac_persona()}</h1>
+        <br>
+        <h1>${user.getCorreo_user()}</h1>
+        <br>
+        <h1>${user.getPassword_user()}</h1>
     </body>
 </html>
