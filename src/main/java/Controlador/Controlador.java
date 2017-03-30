@@ -32,7 +32,7 @@ public class Controlador {
     
     @RequestMapping(value="/")
     public String inicio(){
-        return "inicio";
+        return "Mapa";
     }
     
     @RequestMapping("/registro")
