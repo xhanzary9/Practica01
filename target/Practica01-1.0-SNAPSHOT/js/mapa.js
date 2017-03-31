@@ -15,10 +15,12 @@
 var map;
 function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
-        center: {lat: 19.323769, lng: -99.179029 },
-        zoom: 18});
+        center: {lat: 35.141432, lng: -90.052629 },
+                 zoom: 21,
+                 mapTypeId: google.maps.MapTypeId.SATELLITE
+             });
     /*Definimos un JSON con los estilos que deberá tener nuestro mapa*/
-    var styles = [
+    /*var styles = [
             {
               "elementType": "geometry",
               "stylers": [
@@ -178,20 +180,20 @@ function initMap() {
                 }
               ]
             }
-          ];
+          ];*/
     
     /* Agregamos los estilos que defimos a nuestro mapa*/
-    map.setOptions({styles:styles});
+    //map.setOptions({styles:styles});
     
     /*Agregamos un marcador sobre el mapa*/
     marker = new google.maps.Marker({
         map: map,
-        position:{lat: 19.323769, lng: -99.179029 },
-        title: 'Fciencias'
+        position:{lat: 35.141432, lng: -90.052629 },
+        title: 'come down and play'
     });
     
     var infowindow = new google.maps.InfoWindow({
-    content: 'Tlauizcalpan'
+    content: 'come down and play'
     });
   
   marker.addListener('click', function() {

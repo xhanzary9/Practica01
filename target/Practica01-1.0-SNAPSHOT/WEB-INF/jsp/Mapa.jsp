@@ -13,7 +13,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" type="text/css" href="<c:url value="/css/styles.css"/> ">
         <script src=" <c:url value="/js/mapa.js"/> "></script>
-        <title>MapaCiencias</title>
+        <title>Mapa</title>
     </head>
     <body>
         <div id="map"></div>
